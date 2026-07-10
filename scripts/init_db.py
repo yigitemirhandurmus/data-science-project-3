@@ -14,9 +14,13 @@ CREATE TABLE IF NOT EXISTS students (
     student_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
-    age INT,
-    city VARCHAR(50)
+    age INT
 );
+""")
+
+cur.execute("""
+ALTER TABLE students
+ADD COLUMN IF NOT EXISTS city VARCHAR(50);
 """)
 
 cur.execute("""
